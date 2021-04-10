@@ -1,6 +1,8 @@
 .content {
+  padding: 20px;
   grid-area: c;
-  background-color: rgb(49, 71, 71);
+  border-radius: 20px;
+  background-color: darkgray;
 }
 
 .content img {

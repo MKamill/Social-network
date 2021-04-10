@@ -6,10 +6,12 @@
     "h h"
     "n c";
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 1rf 10fr;
-}
+  grid-template-columns: 150px 8fr;
+  }
 
 .app-wrapper-content {
+  border-radius: 20px;
+  margin: 5px;
   grid-area: c;
-  background-color: rgb(49, 71, 71);
+  background-color: darkgray;
 }

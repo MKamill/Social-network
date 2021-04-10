@@ -1,11 +1,14 @@
 .nav {
   grid-area: n;
-  background-color: darkkhaki;
+  background-color: darkgray;
   padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+
 }
 
 .item {
-  background-color: bisque;
+  background-color: rgb(10, 10, 10);
   margin-bottom: 5px;
   border-radius: 5px;
   text-align: center;
@@ -13,7 +16,7 @@
 
 .item a {
   text-decoration: none;
-  color: rgb(54, 42, 37);
+  color: rgb(255, 255, 255);
 }
 
 .item a.activeLink {
