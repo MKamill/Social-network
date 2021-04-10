@@ -1,0 +1,21 @@
+.nav {
+  grid-area: n;
+  background-color: darkkhaki;
+  padding: 10px;
+}
+
+.item {
+  background-color: bisque;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.item a {
+  text-decoration: none;
+  color: rgb(54, 42, 37);
+}
+
+.item a.activeLink {
+  color: crimson;
+}
