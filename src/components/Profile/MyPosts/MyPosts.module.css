@@ -1,6 +1,14 @@
 .content {
   grid-area: c;
-  background: #cbced1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 15px;
+  color: #555;
+  padding: 10px 10px 10px 5px;
+  margin-bottom: 10px; 
+  border-radius: 25px; 
+  box-shadow: inset 8px 8px 8px #e9ebec, inset -8px -8px 8px  #e9ebec;
 }
 
 .posts {

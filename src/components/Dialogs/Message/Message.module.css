@@ -1,7 +1,7 @@
 .dialogs {
   display: grid;
   grid-template-areas: "di m";
-  grid-template-columns: 300px 10fr;
+  grid-template-columns: 2rf 10fr;
 }
 
 .dialogsItems {

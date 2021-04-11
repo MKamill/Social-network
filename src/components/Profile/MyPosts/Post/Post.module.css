@@ -1,12 +1,24 @@
 .content {
   grid-area: c;
-  background-color: rgb(49, 71, 71);
+ 
 }
 
 .item img {
   border-radius: 30px;
+  box-shadow: 13px 13px 20px #cbced1, -1px -1px 2px #cfcccc;
+
+}
+
+.item span {
+  display: inline-block;
 }
 
 .item {
   color: rgb(0, 0, 0);
+  margin-bottom: 25px;
+  border-radius: 20px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 40px;
+  background: "#ecfOf3";
+  box-shadow: 13px 13px 20px #cbced1, -1px -1px 2px #cfcccc;
 }
