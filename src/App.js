@@ -11,11 +11,11 @@ const App = (props) => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route exact path="/profile" render={() => <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
-        <Route exact path="/dialogs" render={() => <Dialogs messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
-        <Route path="/news" render={() => <Dialogs messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
-        <Route path="/music" render={() => <Dialogs messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
-        <Route path="/settings" render={() => <Dialogs messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
+        <Route exact path="/profile" render={() => <Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
+        <Route exact path="/dialogs" render={() => <Dialogs store={props.store} messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
+        <Route path="/news" render={() => <Dialogs  store={props.store}  messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
+        <Route path="/music" render={() => <Dialogs  store={props.store}  messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
+        <Route path="/settings" render={() => <Dialogs  store={props.store}  messages={props.state.messagesPage.messages} dialogs={props.state.messagesPage.dialogs} />} />
       </div>
     </div>
   );
