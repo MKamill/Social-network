@@ -8,7 +8,7 @@ const Dialogs = (props) => {
 
   let dialogElements = state.dialogs.map(d => {
     return (
-      <DialogItem name={d.name} id={d.id} imgURL={d.imgURL} />
+      <DialogItem name={d.name} key={d.id} id={d.id} imgURL={d.imgURL} />
     )
   })
 
@@ -16,7 +16,7 @@ const Dialogs = (props) => {
 
   let messageElements = state.messages.map(m => {
     return (
-      <Message message={m.message} />
+      <Message message={m.message} key={m.id}/>
     )
   })
 
