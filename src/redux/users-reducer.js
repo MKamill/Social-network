@@ -4,6 +4,7 @@ const SET_USERS = "SET_USERS"
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS"
 
 let initialState = {
     users: [],
@@ -11,6 +12,7 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
+    followingInProgress: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -55,50 +57,63 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
+        case TOGGLE_IS_FOLLOWING_PROGRESS:
+            return {
+                ...state,
+                followingInProgress: [...state.followingInProgress.filter()]
+            }
         default:
             return state;
     }
 }
 
-export const followAC = (userId) => {
+export const follow = (userId) => {
     return {
         type: FOLLOW,
         userId: userId,
     }
 }
 
-export const unfollowAC = (userId) => {
+
+export const unfollow = (userId) => {
     return {
         type: UNFOLLOW,
         userId: userId,
     }
 }
 
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
     return {
         type: SET_USERS,
         users: users,
     }
 }
 
-export const setCurrentPageAC = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return {
         type: SET_CURRENT_PAGE,
         currentPage: currentPage,
     }
 }
 
-export const setTotalUsersCountAC = (count) => {
+export const setTotalUsersCount = (count) => {
     return {
         type: SET_TOTAL_USERS_COUNT,
         count: count,
     }
 }
 
-export const toggleIsFetchingAC = (isFetching) => {
+export const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching: isFetching,
+    }
+}
+
+export const toggleFollowingProgress = (followingInProgress) => {
+    return {
+        type: TOGGLE_IS_FOLLOWING_PROGRESS,
+        followingInProgress: followingInProgress,
     }
 }
 
