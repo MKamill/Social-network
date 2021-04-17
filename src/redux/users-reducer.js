@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api"
+
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_USERS = "SET_USERS"
@@ -60,14 +62,14 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FOLLOWING_PROGRESS:
             return {
                 ...state,
-                followingInProgress: [...state.followingInProgress.filter()]
+                followingInProgress: action.isFetching ? [...state.followingInProgress, action.userId] : [...state.followingInProgress.filter(id => id !== action.userId)]
             }
         default:
             return state;
     }
 }
 
-export const follow = (userId) => {
+export const followSuccess = (userId) => {
     return {
         type: FOLLOW,
         userId: userId,
@@ -75,7 +77,7 @@ export const follow = (userId) => {
 }
 
 
-export const unfollow = (userId) => {
+export const unfollowSuccess = (userId) => {
     return {
         type: UNFOLLOW,
         userId: userId,
@@ -110,12 +112,50 @@ export const toggleIsFetching = (isFetching) => {
     }
 }
 
-export const toggleFollowingProgress = (followingInProgress) => {
+export const toggleFollowingProgress = (followingInProgress, userId) => {
     return {
         type: TOGGLE_IS_FOLLOWING_PROGRESS,
         followingInProgress: followingInProgress,
+        userId: userId,
     }
 }
+
+export const getUsers = (currentPage, pageSize) => (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    usersAPI.getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(toggleIsFetching(false))
+            let _users = data.items.map(u => {
+                let _u = { ...u, photoURL: "https://i.pinimg.com/236x/74/05/5f/74055f83bfbdc20fdc1f9d1fc116fd26.jpg", location: { country: "country", city: "city" } };
+                return _u
+            })
+            dispatch(setUsers(_users));
+            dispatch(setTotalUsersCount(data.totalCount - Math.ceil((data.totalCount / 100) * 99.9)));
+        })
+}
+
+export const follow = (userId) => (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.follow(userId)
+        .then(response => {
+            dispatch(toggleFollowingProgress(false, userId));
+            if (response.data.resultCode === 0) {
+                dispatch(followSuccess(userId));
+            }
+        })
+}
+
+export const unfollow = (userId) => (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.unfollow(userId)
+        .then(response => {
+            dispatch(toggleFollowingProgress(false, userId));
+            if (response.data.resultCode === 0) {
+                dispatch(unfollowSuccess(userId));
+            }
+        })
+}
+
 
 
 
