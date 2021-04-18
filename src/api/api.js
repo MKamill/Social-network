@@ -21,12 +21,30 @@ export const usersAPI = {
         return axi.delete(`follow/${userId}`)
     },
     getProfile(userId) {
-        return axi.get(`profile/${userId}`);
+        return profileAPI.getProfile(userId)
     }
+}
+
+export const profileAPI = {
+    getProfile(userId) {
+        return axi.get(`profile/${userId}`);
+    },
+    getStatus(userId) {
+        return axi.get(`profile/status/${userId}`);
+    },
+    updateStatus(status) {
+        return axi.put(`profile/status`, { status: status });
+    },
 }
 
 export const authAPI = {
     me() {
         return axi.get(`auth/me`)
-    }
+    },
+    login(email, password, rememberMe = false) {
+        return axi.post(`auth/login`, { email, password, rememberMe })
+    },
+    logout() {
+        return axi.delete(`auth/login`)
+    },
 }

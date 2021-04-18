@@ -1,0 +1,21 @@
+.formControl{
+  margin: 15px;
+  border-radius: 20px;
+  border-radius: 40px;
+  background: #ecf0f3; 
+  margin-bottom: 25px;
+  border-radius: 20px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 40px;
+  background: #ecf0f3;
+  box-shadow: 13px 13px 20px #cbced1, -1px -1px 2px #cfcccc;
+}
+
+.formControl.error textarea,
+.formControl.error input {
+  border: 3px red solid;
+}
+
+.formControl.error span {
+  color: red;
+}

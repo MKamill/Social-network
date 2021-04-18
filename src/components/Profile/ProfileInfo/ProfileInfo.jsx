@@ -1,5 +1,6 @@
 import Preloader from "../../common/preloader/Preloader";
 import s from "./ProfileInfo.module.css";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -20,9 +21,8 @@ const ProfileInfo = (props) => {
           <li> {props.profile.userId}</li>
           <li> {props.profile.fullName}</li>
           <li> {props.profile.lookingForAJob}</li>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
         </ul>
-       
-        <div>Аватар + описание</div>
       </div>
     </div>
   )
