@@ -156,7 +156,4 @@ export const unfollow = (userId) => (dispatch) => {
         })
 }
 
-
-
-
 export default usersReducer
